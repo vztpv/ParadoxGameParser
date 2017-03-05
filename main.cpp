@@ -15,7 +15,6 @@ int main(int argc, char* argv[])
 	if (argc == 1) {
 		cout << "FileName: ";
 		getline(cin, fileName);
-		//fileName = "test 6.txt";
 	}
 	else
 	{
