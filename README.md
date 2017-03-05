@@ -1,5 +1,5 @@
 # ParadoxGameParser
-EU4, DHR, VIC2, etc.. savegame or some data file Parser, written by C++
+EU4, DHR, VIC2, etc.. savegame or some data file Parser, written by Modern? C++
 
 # Usage 
 first, Property page -> C/C++ -> Additional include Directories -> Add include folder!
