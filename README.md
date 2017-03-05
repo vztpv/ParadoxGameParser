@@ -21,7 +21,9 @@
     val: string ( ex "test test", test, 222, 33.44 )
     left: LEFT
     right: RIGHT
-
+    EQ : =
+    LEFT : {
+    RIGHT : }
 # Notices!
     val  :  it is just itemtype, its name is empty("")!
     var = val : it is just itemtype, its name is var, value is val.
