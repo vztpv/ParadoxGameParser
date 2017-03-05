@@ -2,7 +2,8 @@
 EU4, DHR, VIC2, etc.. savegame or some data file Parser, written by C++
 
 # Usage 
-check main.cpp! 
+first, Property page -> C/C++ -> Additional include Directories -> Add include folder!
+and check main.cpp! 
  
 # Syntax
 program: | program 
@@ -23,5 +24,5 @@ right: RIGHT
 
 
 
-# chk - ClauText is language(?)( which is based on my ParadoxGameParser ).
+# chk - ClauText is language(?)( which is based on my ParadoxGameParser, and has more functions? ).
 https://github.com/vztpv/ClauText
