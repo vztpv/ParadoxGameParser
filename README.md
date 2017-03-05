@@ -1,6 +1,8 @@
 # ParadoxGameParser
 EU4, DHR, VIC2, etc.. savegame or some data file Parser, written by C++
 
+# Usage
+  #include <wiz/LOAD_DATA.H>
 
 # Syntax
 program: | program 
