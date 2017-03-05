@@ -6,7 +6,7 @@
     and check main.cpp! 
  
 # Syntax
-    program: | program 
+    program: | list program 
 
     list: val | var EQ val | var EQ left inner_list right | var EQ LEFT RIGHT | LEFT RIGHT
 
