@@ -24,11 +24,13 @@
     EQ : =
     LEFT : {
     RIGHT : }
+    
 # Notices!
     val  :  it is just itemtype, its name is empty("")!
     var = val : it is just itemtype, its name is var, value is val.
     var = { } : it is just usertype, its name is var.
     {    } : it is just usertype, its name is empty("")!
-
+    all var, val is just string! if val is integer type, and you want use val as int then you change string to int!
+    
 # check - ClauText is language(?)( which is based on my ParadoxGameParser, and has more functions? ).
     https://github.com/vztpv/ClauText
