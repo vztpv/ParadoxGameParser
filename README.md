@@ -24,5 +24,5 @@ right: RIGHT
 
 
 
-# chk - ClauText is language(?)( which is based on my ParadoxGameParser, and has more functions? ).
+# check - ClauText is language(?)( which is based on my ParadoxGameParser, and has more functions? ).
 https://github.com/vztpv/ClauText
