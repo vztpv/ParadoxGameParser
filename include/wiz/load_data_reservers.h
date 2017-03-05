@@ -9,7 +9,6 @@ using namespace std;
 
 #include <wiz/cpp_string.h>
 #include <wiz/load_data_utility.h>
-#include <wiz/queues.h>
 
 namespace wiz {
 	namespace load_data {

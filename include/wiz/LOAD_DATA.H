@@ -13,7 +13,6 @@ using namespace std;
 
 #include <wiz/global.h>
 #include <wiz/cpp_string.h>
-#include <wiz/queues.h>
 #include <wiz/stacks.h>
 
 
