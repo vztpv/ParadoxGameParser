@@ -22,7 +22,11 @@ val: string ( ex "test test", test, 222, 33.44 )
 left: LEFT
 right: RIGHT
 
-
+# Notices!
+val  :  it is just itemtype, its name is empty("")!
+var = val : it is just itemtype, its name is var, value is val.
+var = { } : it is just usertype, its name is var.
+{    } : it is just usertype, its name is empty("")!
 
 # check - ClauText is language(?)( which is based on my ParadoxGameParser, and has more functions? ).
 https://github.com/vztpv/ClauText
