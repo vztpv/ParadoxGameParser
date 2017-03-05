@@ -17,7 +17,7 @@
     | LEFT RIGHT | LEFT RIGHT inner_list
     | left inner_list right | left inner_list right inner_list
 
-    var: string ( ex test, 222, 33.44, but "test test" is not alllowed! )
+    var: string ( ex test, 222, 33.44, "test test" is alllowed! )
     val: string ( ex "test test", test, 222, 33.44 )
     left: LEFT
     right: RIGHT
