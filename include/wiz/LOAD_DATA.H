@@ -12,8 +12,8 @@
 using namespace std;
 
 #include <wiz/global.h>
+#include <wiz/wizardError.h>
 #include <wiz/cpp_string.h>
-#include <wiz/stacks.h>
 
 
 namespace wiz {

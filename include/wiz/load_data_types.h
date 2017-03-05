@@ -8,7 +8,6 @@
 #include <regex>
 using namespace std;
 
-#include <wiz/newArrays.h>
 #include <wiz/load_data_utility.h>
 #include <wiz/cpp_string.h>
 
