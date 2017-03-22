@@ -411,13 +411,11 @@ namespace wiz {
 					const bool minusComp = Utility::IsMinus(str1) && Utility::IsMinus(str2);
 
 					if (false == minusComp) {
-						if (str1[0] == '+') { str1 = string(str1.c_str() + 1); }
-						if (str2[0] == '+') { str2 = string(str2.c_str() + 1); }
-
 						string x = reverse(str1);
 						string y = reverse(str2);
 
-						
+						if (x[0] == '+') { x = string(x.c_str() + 1); }
+						if (y[0] == '+') { y = string(y.c_str() + 1); }
 
 						if (x.size() < y.size()) {
 							while (x.size() < y.size()) {
@@ -567,22 +565,18 @@ namespace wiz {
 
 						for (int i = 0; i < statement.size(); ++i) {
 							if (0 == state && '\"' == statement[i]) {
-								//token_last = i - 1;
-								//if (token_last >= 0 && token_last - token_first + 1 > 0) {
-								//	aq->emplace_back(statement.substr(token_first, token_last - token_first + 1));
-								//}
+								token_last = i - 1;
+								if (token_last >= 0 && token_last - token_first + 1 > 0) {
+									aq->emplace_back(statement.substr(token_first, token_last - token_first + 1));
+								}
 								state = 1;
-								//token_first = i; 
-								token_last = i;
-							}
-							else if (1 == state && '\\' == statement[i - 1] && '\"' == statement[i]) {
-								token_last = i;
+								token_first = i; token_last = i;
 							}
 							else if (1 == state && '\"' == statement[i]) {
 								state = 0; token_last = i;
 
-								aq->emplace_back(statement.substr(token_first, token_last - token_first + 1));
-								token_first = i + 1;
+								//aq->emplace_back(statement.substr(token_first, token_last - token_first + 1));
+								//token_first = i + 1;
 							}
 
 							if (0 == state && '=' == statement[i]) {
