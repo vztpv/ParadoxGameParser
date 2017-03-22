@@ -86,8 +86,8 @@ namespace wiz {
 					}
 				}
 
-				
-				while (false == strVec.empty()) {
+
+					while (false == strVec.empty()) {
 					switch (state)
 					{
 					case 0:
@@ -260,7 +260,7 @@ namespace wiz {
 							int idx = -1;
 							int num = -1;
 
-							
+
 							{
 								/// uisng struct
 								state_reserve++;
@@ -338,7 +338,7 @@ namespace wiz {
 						else {
 							int idx = -1;
 							int num = -1;
-							
+
 							{
 								/// uisng struct
 								state_reserve++;
@@ -380,7 +380,7 @@ namespace wiz {
 				if (braceNum != 0) {
 					throw string("chk braceNum is ") + toStr(braceNum);
 				}
-				
+
 				return true;
 			}
 
@@ -430,12 +430,16 @@ namespace wiz {
 
 				for (int i = 0; i < statement.size(); ++i) {
 					if (0 == state && '\"' == statement[i]) {
-						token_last = i - 1;
-						if (token_last >= 0 && token_last - token_first + 1 > 0) {
-							strVec.emplace_back(statement.substr(token_first, token_last - token_first + 1));
-						}
+						//token_last = i - 1;
+						//if (token_last >= 0 && token_last - token_first + 1 > 0) {
+						//	strVec.emplace_back(statement.substr(token_first, token_last - token_first + 1));
+						//}
 						state = 1;
-						token_first = i; token_last = i;
+						//token_first = i;
+						token_last = i;
+					}
+					else if (1 == state && '\\' == statement[i - 1] && '\"' == statement[i]) {
+						token_last = i;
 					}
 					else if (1 == state && '\"' == statement[i]) {
 						state = 0; token_last = i;
