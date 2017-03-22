@@ -435,7 +435,7 @@ namespace wiz {
 						//	strVec.emplace_back(statement.substr(token_first, token_last - token_first + 1));
 						//}
 						state = 1;
-						//token_first = i;
+						//token_first = i; 
 						token_last = i;
 					}
 					else if (1 == state && '\\' == statement[i - 1] && '\"' == statement[i]) {
