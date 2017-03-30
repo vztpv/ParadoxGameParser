@@ -179,7 +179,33 @@ namespace wiz{
 				right = i;
 				int _select = -1;
 				bool pass = false;
-				
+
+				if (1 == option && 0 == state && '\"' == str[i]) {
+					if (i == 0) {
+						state = 1;
+						continue;
+					}
+					else if (i > 0 && '\\' == str[i - 1]) {
+						throw "ERROR for Init on StringTokenizer"; // error!
+					}
+					else if (i > 0) {
+						state = 1;
+						continue;
+					}
+				}
+				else if (1 == option && 1 == state && '\"' == str[i]) {
+					if ('\\' == str[i - 1]) {
+						continue;
+					}
+					else {
+						state = 0;
+					}
+				}
+				else if (1 == option && 1 == state) {
+					continue;
+				}
+
+
 				for (int j = 0; j < separator.size(); ++j) {
 					for (int k = 0; k < separator[j].size() && i + k < str.size(); ++k) {
 						if (str[i + k] == separator[j][k]) {
@@ -196,8 +222,8 @@ namespace wiz{
 				if (pass) {
 					this->exist = true;
 
-					if (right-1 - left + 1 > 0) {
-						_m_str.push_back(String::substring(str, left, right-1));
+					if (right - 1 - left + 1 > 0) {
+						_m_str.push_back(String::substring(str, left, right - 1));
 					}
 					i = i + separator[_select].size() - 1;
 					left = i + 1;
@@ -211,103 +237,9 @@ namespace wiz{
 			}
 			//cout << "str is " << str <<  " state  is " << state << endl;
 		}
-		/*
-		void Init(string&& str, const vector<string>& separator) // assumtion : separators are sorted by length?, long -> short
-		{
-			if (separator.empty() || str.empty()) { return; } // if str.empty() == false then _m_str.push_back(str); // ?
-																//vector<int> arr(str.size(), 0);
-
-			int left = 0;
-			int right = 0;
-			bool chkEnd = false;
-
-			this->exist = false;
-
-			for (int i = 0; i < str.size(); ++i) {
-				right = i;
-				int _select = -1;
-				bool pass = false;
-
-				for (int j = 0; j < separator.size(); ++j) {
-					for (int k = 0; k < separator[j].size(); ++k) {
-						if (str[i] == separator[j][k]) {
-							pass = true;
-						}
-						else {
-							pass = false;
-							break;
-						}
-					}
-					if (pass) { _select = j; break; }
-				}
-
-				if (pass) {
-					this->exist = true;
-
-					string temp = wiz::String::substring(str, left, right - 1);
-					if (!temp.empty()) {
-						_m_str.push_back(std::move(temp));
-					}
-					i = i + separator[_select].size() - 1;
-					left = i + 1;
-					right = left;
-				}
-				else if (!pass && i == str.size() - 1) {
-					string temp = wiz::String::substring(str, left, right);
-					if (!temp.empty()) {
-						_m_str.push_back(std::move(temp));
-					}
-				}
-			}
-		}
-		*/
-		/*
-		void Init(const string& str, const vector<string>& separator)
-		{
-			if (separator.empty() || str.empty()) { return; }
-			std::pair<bool, size_t> idx; int k = 0;
-			int i = 0; int select = -1;
-			string tempStr;
-
-			//_m_str.reserve( str.size() );
-			vector<int> arr(separator.size(), 0);
-
-			while (true) {
-				int counter_minus1 = 0;
-				k = str.size(); /// 긴문장은 뒤로??
-				idx.first = false; idx.second = 0; select = 0; ///
-				for (int j = 0; j < separator.size(); j++) {
-					if (-1 == arr[j]) {
-						counter_minus1++;
-						if (counter_minus1 == separator.size()) {
-							tempStr = String::substring(str, i);
-							if (!tempStr.empty()) { _m_str.push_back(std::move(tempStr)); }
-							return;
-						}
-						continue;
-					}
-
-					idx = String::indexOf(str, separator[j], i);
-
-					if (false == idx.first) { arr[j] = -1; }
-
-					if (false == idx.first) { counter_minus1++; }
-					if (false == idx.first && counter_minus1 == separator.size()) {
-						tempStr = String::substring(str, i);
-						if (!tempStr.empty()) { _m_str.push_back(std::move(tempStr)); }
-						return;
-					}
-					if (idx.first) { exist = true; if (k >= idx.second) { select = j; k = idx.second; } }
-				}
-				tempStr = String::substring(str, i, k - 1);
-				if (!tempStr.empty()) { _m_str.push_back(std::move(tempStr)); }
-				i = k + separator[select].size();
-			}
-		}
-		*/
 	public:
 		explicit StringTokenizer() : count(0), exist(false), option(0) { }
-		explicit StringTokenizer(const string& str, const string& separator, int option=0)
+		explicit StringTokenizer(const string& str, const string& separator, int option = 0)
 			: count(0), exist(false), option(option)
 		{
 			vector<string> vec; vec.push_back(separator);
